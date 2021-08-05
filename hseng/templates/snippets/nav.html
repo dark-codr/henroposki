@@ -1,5 +1,9 @@
 {% load static %}
 
+{% url 'home' as home_url %}
+{% url 'about' as about_url %}
+
+
 <!-- Header
 		============================================= -->
 <header id="header" class="border-full-header header-size-custom" data-sticky-shrink="false" data-sticky-offset="52">
@@ -17,7 +21,7 @@
                 </div><!-- #logo end -->
 
                 <div class="header-misc order-lg-3 col-auto col-lg-5 px-0 justify-content-end">
-                    <a href="" data-href="/#section-contact" class="button-link">
+                    <a href="{% if request.path == home_url %}#{% else %}{% url 'home' %}#section-contact{% endif %}" data-offset="56" data-href="{% url 'home' %}#section-contact" class="button-link">
                         <div>Contact</div>
                     </a>
                     <a href="" target="_blank"
@@ -49,10 +53,10 @@
 
                     <!-- Menu Left -->
                     <ul class="menu-container">
-                        <li class="current menu-item"><a class="menu-link" href="{% url 'home' %}">
+                        <li class="{% if request.path == home_url %}current{% endif %} menu-item"><a class="menu-link" href="{% url 'home' %}">
                                 <div>Home</div>
                             </a></li>
-                        <li class="menu-item"><a class="menu-link" href="{% url 'about' %}">
+                        <li class="{% if request.path == about_url %}current{% endif %} menu-item"><a class="menu-link" href="{% url 'about' %}">
                                 <div>About Us</div>
                             </a></li>
                     </ul>
