@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block slider %}
+<!-- Page Title
+============================================= -->
+<section id="page-title" class="text-left">
+
+    <div class="container clearfix">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="mw-sm pr-4">
+                <div class="fancy-title title-border mb-3">
+                    <h5 class="font-weight-normal color font-body text-uppercase ls1">Our Story</h5>
+                </div>
+                <h2 class="nott display-4 font-weight-semibold">About Us.</h2>
+                <span>
+                    Henroposky Engineering Company Limited seeks to win and maintain customers by developing and
+                    providing services and products that offer value in terms of price and quality.
+                </span>
+            </div>
+            <img src="{% static 'images/logo@2x.png' %}" alt="Henroposky Logo" class="d-none d-sm-flex" width="300">
+        </div>
+    </div>
+
+</section><!-- #page-title end -->
+{% endblock slider %}
+
+{% block content %}
+<div class="container py-5">
+
+    <div class="row justify-content-between">
+        <div class="col-md-5">
+            <h2 class="font-weight-normal display-4">More than <span>10+ Years</span> of Expirience.</h2>
+            <p class="text-black-50">
+                Henroposky Engineering Company Limited is a technology and service based
+                establishment with exceptional expertise in planning, design, construction and
+                maintenance of wide range of Civil, electrical and mechanical works. It also offers
+                technical support services in the oil and gas downstream sector.
+            </p>
+            <p class="text-black-50">
+                Henroposky Engineering Company Limited is totally committed to providing
+                products and services aimed at helping utility and industrial customers improve and
+                sustain performance and productivity at a competitive cost.
+            </p>
+            <p class="text-black-50">
+                At Henroposky Engineering Company Limited, commitment to provision of quality
+                services is characterized by honesty; loyalty and ethical business practices.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <!-- Grid row -->
+            <div class="row gutter-10" data-lightbox="gallery">
+
+                <div class="col-4">
+                    <a href="{% static 'demos/yoga/images/gallery/4.jpg' %}" data-lightbox="gallery-item">
+                        <img class="img-fluid h-op-09 op-ts mb-2 lazy"
+                            src="{% static 'demos/yoga/images/gallery/4.jpg' %}" alt="Image">
+                    </a>
+                    <a href="{% static 'demos/yoga/images/gallery/5.jpg' %}" data-lightbox="gallery-item">
+                        <img class="img-fluid h-op-09 op-ts lazy" src="{% static 'demos/yoga/images/gallery/5.jpg' %}"
+                            alt="Image">
+                    </a>
+                </div>
+                <div class="col-8">
+                    <a href="{% static 'demos/yoga/images/gallery/2.jpg' %}" data-lightbox="gallery-item">
+                        <img class="img-fluid h-op-09 op-ts lazy" src="{% static 'demos/yoga/images/gallery/2.jpg' %}"
+                            alt="Image">
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- vision and mission statement -->
+<div class="section section-yogas mb-0" style="background-color: rgba(126, 150, 128,0.2); padding: 100px 0">
+    <div class="container">
+        <div class="row col-mb-50">
+            <div class="col-md-6 col-lg-4">
+                <div class="card" style="border-top-color: #9DC3E2;">
+                    <div class="card-body">
+                        <img src="{% static 'demos/yoga/images/yoga-icons/color/svg/asana_lotus_col.svg' %}"
+                            alt="Yoga Icon" class="mb-3" width="60">
+                        <h3>Mission.</h3>
+                        <p class="text-black-50">
+                            Actively train and retrain our youths for active participation in the construction industry
+                            aimed at fostering an industrialized Nigeria.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4" style="margin-top: 30px">
+                <div class="card" style="border-top-color: #F4ABEF;">
+                    <div class="card-body">
+                        <img src="{% static 'demos/yoga/images/yoga-icons/color/svg/man_well.svg' %}" alt="Yoga Icon"
+                            class="mb-3" width="60">
+                        <h3>Vision.</h3>
+                        <p class="text-black-50">
+                            Henroposky Engineering Company Limited is envisioned to take Engineering and contracting
+                            services to the next level through indigenous technology and manpower development
+                            initiative.
+                            <!-- Henroposky Engineering Company Limited seeks to win and maintain customers by developing and
+                            providing services and products that offer value in terms of price and quality. -->
+
+
+                            <!-- Henroposky Engineering Company Limited seeks to respect the human rights of our employees
+                            and provide them with safe and good conditions of work under good and competitive terms and
+                            conditions of service.
+
+                            We also to promote the development and best use of human talent and equal opportunity
+                            employment, so as to encourage the involvement of our employees in the planning and
+                            direction of their work in the application of these principles within and outside the firm. -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4" style="margin-top: 60px">
+                <div class="card" style="border-top-color: #9DD2D8;">
+                    <div class="card-body">
+                        <img src="{% static 'demos/yoga/images/yoga-icons/color/svg/lotus_col.svg' %}" alt="Yoga Icon"
+                            class="mb-3 lazy" width="60">
+                        <h3>Work Ethics.</h3>
+                        <p class="text-black-50">
+                            Design and Construction of Buildings, Roads and General Civil Engineering Works. Our ability
+                            to Undertake certain kind of Jobs makes us conspicuous amonst many.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Team members -->
+<div class="section bg-transparent my-0 pb-5">
+    <div class="container">
+        <div class="heading-block">
+            <h3 class="font-weight-bold nott mb-4" style="font-size: 42px; letter-spacing: -1px;">Key
+                <span>Services</span>.
+            </h3>
+            <p>
+                Henroposky Engineering Company Limited engages the services of young
+                Indigenous Engineers mainly from the Niger Delta states and other part of the
+                country to promote the federal government local content policy.
+            </p>
+        </div>
+        <div class="center text-title"><h3><img src="{% static 'demos/yoga/images/yoga-icons/outlined/svg/sahasara.svg' %}" alt="service title icon" width="20" height="20">Services</h3></div>
+        <div class="price-features">
+            <div class="row">
+                <div class="col-md-4">
+                    <ul class="iconlist mb-0">
+                        <li><i class="icon-line-circle-check color"></i> Consultancy or Design Engineering Projects</li>
+                        <li><i class="icon-line-circle-check color"></i> Design of Buildings, Roads and RC Bridges</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="iconlist mb-0">
+                        <li><i class="icon-line-circle-check color"></i> Design & Construction of Drainages & Culverts</li>
+                        <li><i class="icon-line-circle-check color"></i> Design of Oil Land Locations Platforms</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="iconlist mb-0">
+                        <li><i class="icon-line-circle-check color"></i> Design of steel frames Using Staad Pro </li>
+                        <li><i class="icon-line-circle-check color"></i> Design of Structural Steel Tank and Stand.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="section bg-white mt-3 pb-0" style="margin-bottom: 2px;">
+    <div class="container text-center mb-5">
+        <h3 class="h1 font-weight-semibold"><i class="icon-line-instagram"></i> Instagram Feed</h3>
+        <a href="https://www.instagram.com/darkcodr_codes" class="button button-small bg-light button-light button-rounded text-dark text-smaller color mt-3" target="_blank">Follow us on Instagram</a>
+    </div>
+    <div id="instagram-photos" class="instagram-photos masonry-thumbs grid-6" data-user="darkcodr_codes"></div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,238 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{% block title %}hseng{% endblock title %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Henroposky Engineering Company Limited is a technology and service based establishment with exceptional expertise in planning, design, construction and maintenance of wide range of Civil, electrical and mechanical works. It also offers technical support services in the oil and gas downstream sector.">
+  <meta name="author" content="Jeremiah David">
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://stackpath.bootstrapcdn.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://etopocontrol-services.s3.amazonaws.com">
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700|Roboto:300,400,500,700&display=swap"
+    rel="stylesheet" type="text/css" />
+
+  <link rel="icon" href="{% static 'images/favicons/favicon.png' %}">
+
+  <!-- Latest compiled and minified Bootstrap CSS -->
+  <!-- Your stuff: Third-party CSS libraries go here -->
+  <link href="{% static 'css/iziToast.min.css' %}" rel="stylesheet">
+
+
+  {% block css %}
+  <!-- Your stuff: Third-party CSS libraries go here -->
+  <!-- This file stores project-specific CSS -->
+  {% include "snippets/css.html" %}
+  {% endblock %}
+  <!-- Le javascript
+    ================================================== -->
+  {# Placed at the top of the document so pages load faster with defer #}
+  {% block javascript %}
+  <!-- Your stuff: Third-party javascript libraries go here -->
+
+  <!-- place project specific Javascript in this file -->
+  {% include "snippets/js.html" %}
+
+  {% endblock javascript %}
+
+</head>
+
+<body class="stretched sticky-footer">
+
+  <div class="clearfix" id=wrapper>
+    {% include "snippets/header.html" %}
+    {% include "snippets/nav.html" %}
+
+    {% block slider %}
+    {% endblock %}
+
+    <div id="content" class="bg-white">
+      <div class="content-wrap py-0" style="overflow: visible">
+
+        {% block content %}
+        {% endblock content %}
+
+      </div>
+    </div>
+
+
+    {% include "snippets/footer.html" %}
+  </div> <!-- /container -->
+
+  <!-- Go To Top
+    ============================================= -->
+  <div id="gotoTop" class="icon-angle-up"></div>
+
+
+  {% block modal %}{% endblock modal %}
+
+  {# izi message signals for django #}
+  {% for message in messages %}
+  <script type=text/javascript>
+        iziToast.settings({
+          timeout: 9000,
+          position: 'topRight',
+          drag: true,
+          pauseOnHover: true,
+          transitionIn: 'flipInX',
+          transitionOut: 'flipOutX',
+          transitionInMobile: 'fadeInUp',
+          transitionOutMobile: 'fadeOutDown',
+          close: true,
+          balloon: true,
+          progressBar: true,
+          progressBarEasing: 'ease',
+          pauseOnHover: true,
+          icon: 'material-icons',
+          iconText: '{% if message.tags == "info" %}info{% elif message.tags == "success" %}check_circle{% elif message.tags == "warning" %}warning{% else %}priority_high{% endif %}',
+        });
+        iziToast.{{ message.tags }}({
+          id: '{{ message.tags }}',
+          title: '{{ message.tags|capfirst }}',
+          message: '{{ message }}',
+        });
+      </script>
+  {% endfor %}
+
+
+  <script>
+    jQuery(document).ready(function () {
+
+      $('input[type="file"]').change(function (e) {
+        var fileName = e.target.files[0].name;
+        $('.custom-file-label').html(fileName);
+      });
+
+      tinymce.init({
+        selector: 'textarea',
+        menubar: false,
+        plugins: [
+          "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+          "searchreplace wordcount visualblocks visualchars code fullscreen",
+          "insertdatetime media nonbreaking save table contextmenu directionality",
+          "emoticons template paste textcolor colorpicker textpattern"
+        ],
+        setup: function (editor) {
+          editor.on('change', function (e) {
+            editor.save();
+          });
+        }
+      });
+
+      $(function () {
+        if (window.location.hash) {
+          var hash = window.location.hash;
+          $(hash).modal('toggle');
+        }
+      });
+    });
+  </script>
+
+  <script>
+    // Owl Carousel Scripts
+    jQuery(window).on('pluginCarouselReady', function () {
+      $('#oc-teachers').owlCarousel({
+        items: 1,
+        margin: 30,
+        nav: true,
+        navText: ['<i class="icon-line-arrow-left"></i>', '<i class="icon-line-arrow-right"></i>'],
+        dots: false,
+        smartSpeed: 300,
+        stagePadding: 60,
+        responsive: {
+          768: { stagePadding: 100, margin: 30, items: 1 },
+          991: { stagePadding: 100, margin: 40, smartSpeed: 400, items: 2 },
+          1200: { stagePadding: 100, margin: 40, smartSpeed: 400, items: 2 }
+        },
+      });
+    });
+
+    //Current Week
+    Date.prototype.getWeek = function (start) {
+      //Calcing the starting point
+      start = start || 0;
+      var today = new Date(this.setHours(0, 0, 0, 0));
+      var day = today.getDay() - start;
+      var date = today.getDate() - day;
+
+      // Grabbing Start/End Dates
+      var StartDate = new Date(today.setDate(date));
+      var EndDate = new Date(today.setDate(date + 6));
+      return [StartDate, EndDate];
+    }
+    var Dates = new Date().getWeek();
+    $("#week-details").text(Dates[0].toLocaleDateString() + ' - ' + Dates[1].toLocaleDateString());
+  </script>
+
+  <script>
+    /* Project specific Javascript goes here. */
+    document.addEventListener("DOMContentLoaded", function () {
+      var lazyloadImages;
+
+      if ("IntersectionObserver" in window) {
+        lazyloadImages = document.querySelectorAll(".lazy");
+        var imageObserver = new IntersectionObserver(function (entries, observer) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var image = entry.target;
+              image.classList.remove("lazy");
+              imageObserver.unobserve(image);
+            }
+          });
+        });
+
+        lazyloadImages.forEach(function (image) {
+          imageObserver.observe(image);
+        });
+      } else {
+        var lazyloadThrottleTimeout;
+        lazyloadImages = document.querySelectorAll(".lazy");
+
+        function lazyload() {
+          if (lazyloadThrottleTimeout) {
+            clearTimeout(lazyloadThrottleTimeout);
+          }
+
+          lazyloadThrottleTimeout = setTimeout(function () {
+            var scrollTop = window.pageYOffset;
+            lazyloadImages.forEach(function (img) {
+              if (img.offsetTop < (window.innerHeight + scrollTop)) {
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+              }
+            });
+            if (lazyloadImages.length == 0) {
+              document.removeEventListener("scroll", lazyload);
+              window.removeEventListener("resize", lazyload);
+              window.removeEventListener("orientationChange", lazyload);
+            }
+          }, 20);
+        }
+
+        document.addEventListener("scroll", lazyload);
+        window.addEventListener("resize", lazyload);
+        window.addEventListener("orientationChange", lazyload);
+      }
+    })
+
+  </script>
+
+
+  {% block inline_javascript %}
+  {# Script tags with only code, no src (defer by default) #}
+  {% endblock inline_javascript %}
+</body>
+
+</html>
